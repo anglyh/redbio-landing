@@ -1,0 +1,59 @@
+---
+import { Megaphone, Users, Microscope, FolderCheck } from 'lucide-astro';
+
+const steps = [
+    {
+        id: 1,
+        title: "Convocatoria de Talento",
+        description: "Invitamos a perfiles junior y semi-senior de Comunicación, Recursos Humanos, Psicología y Diseño.",
+        icon: Megaphone
+    },
+    {
+        id: 2,
+        title: "Matching Estratégico",
+        description: "Asignamos un mentor por beneficiario, colaborando estrechamente mediante ONGs territoriales aliadas.",
+        icon: Users
+    },
+    {
+        id: 3,
+        title: "Laboratorio de Identidad",
+        description: "Diagnóstico de habilidades, redacción empática de perfiles profesionales y curaduría de la trayectoria laboral.",
+        icon: Microscope
+    },
+    {
+        id: 4,
+        title: "Entrega de Activos",
+        description: "Entrega de Kits digitales (CV moderno, perfil de LinkedIn optimizado, foto profesional) para la autonomía total del trabajador.",
+        icon: FolderCheck
+    }
+];
+---
+
+<section id="como-funciona" class="py-24 bg-secondary">
+    <div class="container mx-auto px-6 md:px-12">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <h3 class="font-display text-3xl md:text-5xl text-primary mb-4">La ruta del impacto</h3>
+            <p class="text-gray-600 text-lg">Un proceso estructurado, 100% virtual, diseñado para maximizar el tiempo del voluntario y el beneficio del trabajador.</p>
+        </div>
+
+        <!-- Timeline / Steps -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 relative">
+            <!-- Línea conectora (solo desktop) -->
+            <div class="hidden xl:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gray-300 z-0"></div>
+
+            {steps.map((step, index) => (
+                <div class={`relative z-10 bg-base p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow reveal border border-gray-100 delay-${(index + 1) * 100}`}>
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-accent text-2xl font-display mb-6 shadow-inner relative">
+                        {step.id}
+                        <div class="absolute -bottom-2 -right-2 bg-base rounded-full p-1.5 shadow">
+                            <step.icon class="w-5 h-5 text-primary" />
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">{step.title}</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

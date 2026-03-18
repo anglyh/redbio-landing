@@ -1,0 +1,44 @@
+---
+import { ArrowRight } from 'lucide-astro';
+import { Image } from 'astro:assets';
+import heroBkg from '../assets/images/bkg-virtual-mentoring.webp';
+---
+
+<header id="inicio" class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-primary pt-16">
+    <!-- Imagen de fondo real (videollamada/mentoría) -->
+    <div class="absolute inset-0 w-full h-full">
+        <Image 
+            src={heroBkg} 
+            alt="Mentora guiando a un beneficiario a través de una videollamada" 
+            class="w-full h-full object-cover object-center opacity-80"
+            loading="eager"
+        />
+    </div>
+    
+    <!-- Overlay Color Primary 70% y patrón -->
+    <div class="absolute inset-0 bg-primary/70 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-pattern opacity-50"></div>
+    
+    <!-- Línea decorativa diagonal amarilla -->
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-accent opacity-20 transform rotate-45 blur-3xl rounded-full"></div>
+
+    <!-- Contenido Hero -->
+    <div class="relative z-10 container mx-auto px-6 md:px-12 text-center md:text-left flex flex-col md:flex-row items-center">
+        <div class="max-w-3xl reveal">
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-4">
+                RED <span class="text-accent underline decoration-accent/30 underline-offset-8">BIO</span> <br>
+                Identidad Digital Solidaria
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-200 font-light mb-6 border-l-4 border-accent pl-4">
+                Propuesta de Responsabilidad Social Virtual y Empoderamiento Laboral
+            </h2>
+            <p class="text-lg text-gray-100 mb-10 max-w-2xl leading-relaxed">
+                Somos una plataforma de voluntariado de alta escala que conecta a jóvenes profesionales con trabajadores en búsqueda activa para profesionalizar su presencia digital y potenciar su empleabilidad.
+            </p>
+            <a href="#unirme" class="inline-flex items-center justify-center bg-accent text-primary font-bold text-lg py-4 px-8 rounded-lg shadow-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-xl transition-all duration-300 group">
+                Quiero ser voluntario/a
+                <ArrowRight class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+        </div>
+    </div>
+</header>

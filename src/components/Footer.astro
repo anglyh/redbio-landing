@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/redbio-logo-positivo.webp';
+---
+
+<footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+    <div class="container mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Logo / Marca -->
+            <div class="mb-6 md:mb-0 text-center md:text-left">
+                <Image src={logo} alt="Logo RED BIO" class="w-24" />
+            </div>
+
+            <!-- Cierre y Enlaces -->
+            <div class="flex flex-col items-center md:items-end">
+                <p class="text-gray-300 mb-4 md:mb-2 flex items-center">
+                    Una iniciativa impulsada por <strong class="ml-1 text-white">Munay Ruray</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

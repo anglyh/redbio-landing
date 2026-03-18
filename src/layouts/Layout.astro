@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<SEO {title} {description} {image} />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<slot />
+		
+		<script>
+			// Lógica para animaciones suaves al hacer scroll (Scroll Reveal)
+			document.addEventListener('DOMContentLoaded', () => {
+				const revealElements = document.querySelectorAll('.reveal');
+
+				const revealOptions = {
+					threshold: 0.15,
+					rootMargin: "0px 0px -50px 0px"
+				};
+
+				const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+					entries.forEach(entry => {
+						if (!entry.isIntersecting) {
+							return;
+						} else {
+							entry.target.classList.add('active');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, revealOptions);
+
+				revealElements.forEach(el => {
+					revealOnScroll.observe(el);
+				});
+			});
+		</script>
+	</body>
+</html>
